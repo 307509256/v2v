@@ -9,11 +9,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.concurrent.Callable;
-
 /**
- * Created by mqstack on 2015/11/23.
+ * Created by gongjia on 2017/9/1.
  */
 public class MainActivity extends Activity implements OnItemClickListener {
 
@@ -40,16 +37,41 @@ public class MainActivity extends Activity implements OnItemClickListener {
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
         String testCommand = commands[position];
-        Log.d("testCommand", testCommand);
+        Log.e("ffmpeg", testCommand);
         long i = System.currentTimeMillis();
-        if (ffmpegJni.ffmpegRunCommand(testCommand) == 0) {
-            Toast.makeText(this, "Cut success", Toast.LENGTH_LONG).show();
-            Log.d("FFmpegJni", "Cut success");
-            Log.d("FFmpegJni", "command time" + (System.currentTimeMillis() - i));
 
-        } else {
-            Toast.makeText(this, "Cut failed", Toast.LENGTH_LONG).show();
-            Log.d("FFmpegJni", "Cut failed");
+        if(position < 3){
+            if (ffmpegJni.ffmpegRunCommand(testCommand) == 0) {
+                Toast.makeText(this, "success", Toast.LENGTH_LONG).show();
+                Log.e("FFmpegJni", "success");
+                Log.e("FFmpegJni", "command time" + (System.currentTimeMillis() - i));
+
+            } else {
+                Toast.makeText(this, "Cut failed", Toast.LENGTH_LONG).show();
+                Log.e("FFmpegJni", "Cut failed");
+            }
+        }else if(position == 3){
+            if (ffmpegJni.v2v_repeat("/sdcard/gongjia/xx.mp4", "/sdcard/gongjia/v2v_repeat.mp4", 2) == 0) {
+                Toast.makeText(this, "v2v_repeat success", Toast.LENGTH_LONG).show();
+                Log.e("FFmpegJni", "v2v_repeat success");
+                Log.e("FFmpegJni", "command time" + (System.currentTimeMillis() - i));
+
+            } else {
+                Toast.makeText(this, "v2v_repeat failed", Toast.LENGTH_LONG).show();
+                Log.e("FFmpegJni", "v2v_repeat failed");
+            }
+        }else if(position == 4){
+            if (ffmpegJni.v2v_timeback("/sdcard/gongjia/input.flv", "/sdcard/gongjia/v2v_timeback.mp4") == 0) {
+                Toast.makeText(this, "v2v_timeback success", Toast.LENGTH_LONG).show();
+                Log.e("FFmpegJni", "v2v_timeback success");
+                Log.e("FFmpegJni", "command time" + (System.currentTimeMillis() - i));
+
+            } else {
+                Toast.makeText(this, "v2v_timeback failed", Toast.LENGTH_LONG).show();
+                Log.e("FFmpegJni", "v2v_timeback failed");
+            }
         }
+
     }
+
 }
