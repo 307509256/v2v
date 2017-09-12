@@ -24,7 +24,7 @@ LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog -lz
 LOCAL_SHARED_LIBRARIES := ijkffmpeg 
 
 LOCAL_C_INCLUDES += -L$(SYSROOT)/usr/include
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/include2
 
 # -mfpu=neon -O3 -ffast-math -funroll-loops
 LOCAL_CFLAGS := -DUSE_ARM_CONFIG

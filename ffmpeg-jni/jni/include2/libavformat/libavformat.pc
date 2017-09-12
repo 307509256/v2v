@@ -1,0 +1,14 @@
+prefix=/home/gongjia/external/ijk/0.7.4/ijkplayer-android-cmd/android/contrib/build/ffmpeg-armv7a/output
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 57.56.100
+Requires: libavcodec >= 57.64.100, libswresample >= 2.3.100, libavutil >= 55.34.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavformat -lssl -lcrypto -lx264 -lm -lz -pthread
+Libs.private: 
+Cflags: -I${includedir}
