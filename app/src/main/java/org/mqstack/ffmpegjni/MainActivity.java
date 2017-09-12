@@ -40,7 +40,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         Log.e("ffmpeg", testCommand);
         long i = System.currentTimeMillis();
 
-        if(position < 3){
+        if(position < 4){
             if (ffmpegJni.ffmpegRunCommand(testCommand) == 0) {
                 Toast.makeText(this, "success", Toast.LENGTH_LONG).show();
                 Log.e("FFmpegJni", "success");
@@ -50,7 +50,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 Toast.makeText(this, "Cut failed", Toast.LENGTH_LONG).show();
                 Log.e("FFmpegJni", "Cut failed");
             }
-        }else if(position == 3){
+        }else if(position == 5){
             if (ffmpegJni.v2v_repeat("/sdcard/gongjia/xx.mp4", "/sdcard/gongjia/v2v_repeat.mp4", 2) == 0) {
                 Toast.makeText(this, "v2v_repeat success", Toast.LENGTH_LONG).show();
                 Log.e("FFmpegJni", "v2v_repeat success");
@@ -60,8 +60,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 Toast.makeText(this, "v2v_repeat failed", Toast.LENGTH_LONG).show();
                 Log.e("FFmpegJni", "v2v_repeat failed");
             }
-        }else if(position == 4){
-            if (ffmpegJni.v2v_timeback("/sdcard/gongjia/input.flv", "/sdcard/gongjia/v2v_timeback.mp4") == 0) {
+        }else if(position == 6){
+            if (ffmpegJni.v2v_timeback("/sdcard/gongjia/xx.mp4", "/sdcard/gongjia/v2v_timeback.mp4") == 0) {
                 Toast.makeText(this, "v2v_timeback success", Toast.LENGTH_LONG).show();
                 Log.e("FFmpegJni", "v2v_timeback success");
                 Log.e("FFmpegJni", "command time" + (System.currentTimeMillis() - i));

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="commands">
+        <!---->
         <item>ffmpeg -y -i /sdcard/gongjia/xx.mp4 -i /sdcard/gongjia/abc.png -filter_complex "overlay=5:5" -acodec copy -vcodec libx264 /sdcard/gongjia/1.mp4</item>
+        <item>ffmpeg -y -i /sdcard/gongjia/y.mp4 -i /sdcard/gongjia/abc.png -filter_complex "overlay=5:5" -acodec copy -vcodec libx264 /sdcard/gongjia/2.mp4</item>
         <item>ffmpeg -y -i /sdcard/gongjia/xx.mp4 -acodec copy -vcodec libx264 /sdcard/gongjia/2.mp4</item>
-        <item>ffmpeg -y -i /sdcard/gongjia/xx.mp4 -i /sdcard/gongjia/abc.png -filter_complex "overlay=5:5" /sdcard/gongjia/3.mp4</item>
+        <item>ffmpeg -y -i /sdcard/gongjia/y.mp4 -i /sdcard/gongjia/abc.png -filter_complex "overlay=5:5" /sdcard/gongjia/3.mp4</item>
         <item>ffmpeg -y -i /sdcard/gongjia/xx.mp4 -i /sdcard/gongjia/abc.png -filter_complex "overlay=5:5" -acodec copy -vcodec libx264 /sdcard/gongjia/4.mp4</item>
         <item>ffmpeg -i /sdcard/gongjia/xx.mp4 -vf \"movie=/sdcard/gongjia/abc.png [logo]; [in][logo] overlay=10:10:enable=\'between(t,0,5)\" -acodec copy -y /sdcard/gongjia/5.mp4</item>
         <item>ffmpeg -i /sdcard/gongjia/xx.mp4 -vf \"movie=/sdcard/gongjia/abc.png [logo]; [in][logo] overlay=10:10 [out]\" -acodec copy -y /sdcard/gongjia/5.mp4</item>
